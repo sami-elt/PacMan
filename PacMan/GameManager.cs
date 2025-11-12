@@ -24,8 +24,8 @@ namespace PacMan
         private float invunarable = 3f;
         private bool isInvunarble = false;
 
-        public bool GameOver { get { return gameOver;}}
-        public bool GameWon { get { return gameWon;}}
+        public bool GameOver { get { return gameOver; }}
+        public bool GameWon { get { return gameWon; }}
 
         
         public GameManager(Tilemap tilemap)
@@ -130,8 +130,7 @@ namespace PacMan
 
                 Vector2 textPosition = new Vector2(
                 GraphicsDeviceManager.DefaultBackBufferWidth / 2,
-                GraphicsDeviceManager.DefaultBackBufferHeight / 2
-            );
+                GraphicsDeviceManager.DefaultBackBufferHeight / 2);
 
                 spriteBatch.DrawString(TextureHandler.font, gameOverText, textPosition, Color.Red);
             }
@@ -142,8 +141,7 @@ namespace PacMan
 
                 Vector2 textPosition = new Vector2(
                 GraphicsDeviceManager.DefaultBackBufferWidth / 2,
-                GraphicsDeviceManager.DefaultBackBufferHeight / 2
-            );
+                GraphicsDeviceManager.DefaultBackBufferHeight / 2);
 
                 spriteBatch.DrawString(TextureHandler.font, winningText, textPosition, Color.Green);
             }

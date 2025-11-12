@@ -30,27 +30,20 @@ namespace PacMan.Entities
         {
             base.Update(gameTime);
 
-            timeSinceLastFrame += gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (timeSinceLastFrame >= millisecondsPerFrame)
-            {
-                frameIndex++;
-                if (frameIndex >= SpriteSheetManager.GhostFrames.Length)
-                    frameIndex = 0;
-                timeSinceLastFrame = 0;
-            }
+            AnimationUpdate(gameTime, SpriteSheetManager.GhostFrames.Length);
         }
 
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             float scale = Tilemap.TileSize / 24f;
-            Vector2 centerPos = position + new Vector2(Tilemap.TileSize / 2);
+            Vector2 center = position + new Vector2(Tilemap.TileSize / 2);
             Vector2 origin = new Vector2(8, 8);
 
             spriteBatch.Draw(
                 texture,
-                centerPos,
-                SpriteSheetManager.GhostFrames[frameIndex],
+                center,
+                SpriteSheetManager.GhostFrames[frames],
                 Color.White,
                 0f,
                 origin,

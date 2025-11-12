@@ -20,7 +20,6 @@ namespace PacMan.Entities
         public Food(Vector2 position, Texture2D texture) : base (texture,position)
         {
             IsEaten = false;
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -28,14 +27,14 @@ namespace PacMan.Entities
             if (!IsEaten)
             {
                 float scale = (float)Tilemap.TileSize / 16 * 1f;
-                Vector2 centerPosition = position + new Vector2(Tilemap.TileSize / 2);
+                Vector2 center = position + new Vector2(Tilemap.TileSize / 2);
                 Vector2 origin = new Vector2(8, 8);
 
                 spriteBatch.Draw(
                     texture,
-                    centerPosition,
+                    center,
                     SpriteSheetManager.Food,
-                    Color.White,
+                    Color.Red,
                     0f,
                     origin,
                     scale,

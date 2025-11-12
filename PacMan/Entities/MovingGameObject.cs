@@ -2,10 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using PacMan.Map;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PacMan.Entities
 {
@@ -24,9 +21,9 @@ namespace PacMan.Entities
 
         protected Tilemap tilemap;
 
-        protected int frameIndex = 0;
-        protected double timeSinceLastFrame = 0;
-        protected double millisecondsPerFrame = 200;
+        protected int frames = 0;
+        protected double frameTimer = 0;
+        protected double frameInterval = 150;
 
 
         public Rectangle Rec
@@ -87,6 +84,18 @@ namespace PacMan.Entities
                 }
             }
 
+        }
+
+        public void AnimationUpdate(GameTime gameTime, int maxFrames)
+        {
+            frameTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (frameTimer >= frameInterval)
+            {
+                frames++;
+                if (frames >= maxFrames)
+                    frames = 0;
+                frameTimer = 0;
+            }
         }
 
         public void ChangeDirection(Vector2 dir)

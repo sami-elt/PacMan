@@ -61,16 +61,15 @@ namespace PacMan.Map
             {
                 for (int j = 0; j < level[0].Length; j++)
                 {
-                    Vector2 pos = new Vector2(j * TileSize, i * TileSize);
 
                     if (level[i][j] == 'w')
                     {
-                        Tileset tile = new Tileset(pos, TextureHandler.wallTexture, true);
+                        Tileset tile = new Tileset(new Vector2(j * TileSize, i * TileSize), TextureHandler.wallTexture, true);
                         tileArray[j, i] = tile;
                     }
                     else
                     {
-                        Tileset tile = new Tileset(pos, TextureHandler.floorTexture, false);
+                        Tileset tile = new Tileset(new Vector2(j * TileSize, i * TileSize), TextureHandler.floorTexture, false);
                         tileArray[j, i] = tile;
 
 
@@ -88,7 +87,7 @@ namespace PacMan.Map
 
                     if (level[i][j] == '-')
                     {
-                        food.Add(new Food(pos, TextureHandler.foodTexture));
+                        food.Add(new Food(new Vector2(j * TileSize, i * TileSize), TextureHandler.foodTexture));
                     }
                 }
             }
