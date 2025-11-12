@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using PacMan.Map;
 
-namespace PacMan
+namespace PacMan.Entities
 {
     public class Player : MovingGameObject
     {
@@ -69,7 +70,7 @@ namespace PacMan
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            float scale = (float)Tilemap.TileSize / 24f;
+            float scale = Tilemap.TileSize / 24f;
             Vector2 centerPos = position + new Vector2(Tilemap.TileSize / 2);
             Vector2 origin = new Vector2(8, 8);
 

@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using PacMan.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PacMan
+namespace PacMan.Entities
 {
     public class Enemy : MovingGameObject
     {
@@ -42,7 +43,7 @@ namespace PacMan
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            float scale = (float)Tilemap.TileSize / 24f;
+            float scale = Tilemap.TileSize / 24f;
             Vector2 centerPos = position + new Vector2(Tilemap.TileSize / 2);
             Vector2 origin = new Vector2(8, 8);
 

@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using PacMan.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PacMan
+namespace PacMan.Map
 {
     public class Tileset : GameObject
     {
@@ -17,7 +18,7 @@ namespace PacMan
         public Tileset(Vector2 position, Texture2D texture, bool wall) : base( texture, position)
         {
      
-            this.Wall = wall;
+            Wall = wall;
         }
     }
 }

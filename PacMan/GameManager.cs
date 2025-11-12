@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using PacMan.Entities;
+using PacMan.Map;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,7 +21,7 @@ namespace PacMan
         private bool gameWon;
 
         private float timer = 0f;
-        private float invunarable = 2f;
+        private float invunarable = 3f;
         private bool isInvunarble = false;
 
         public bool GameOver { get { return gameOver;}}

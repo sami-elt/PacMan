@@ -3,6 +3,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using PacMan.Entities;
+using PacMan.Map;
 using System.Collections.Generic;
 using System.IO;
 
