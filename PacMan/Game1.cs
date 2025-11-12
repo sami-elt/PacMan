@@ -46,7 +46,7 @@ namespace PacMan
 
             player = tilemap.Player;
             enemy = tilemap.Enemy;
-            gameManager = new GameManager(tilemap, 3);
+            gameManager = new GameManager(tilemap);
 
 
             // TODO: use this.Content to load your game content here

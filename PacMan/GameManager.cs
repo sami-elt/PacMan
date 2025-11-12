@@ -22,16 +22,14 @@ namespace PacMan
         private float invunarable = 2f;
         private bool isInvunarble = false;
 
-        private Vector2 postion;
-
         public bool GameOver { get { return gameOver;}}
         public bool GameWon { get { return gameWon;}}
 
         
-        public GameManager(Tilemap tilemap, int lives)
+        public GameManager(Tilemap tilemap)
         {
             this.tilemap = tilemap;
-            this.lives = lives;
+            this.lives = lives = 3;
             this.gameOver = false;
             this.gameWon = false;
         }
@@ -39,12 +37,15 @@ namespace PacMan
         public void Update(GameTime gameTime)
         {
 
+
+
             if (isInvunarble)
             {
                 timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (timer <= 0)
                 {
                     isInvunarble = false;
+                    Debug.WriteLine("Invulnerability ended");
                 }
             }
 
@@ -83,6 +84,7 @@ namespace PacMan
 
             if(playerRectangle.Intersects(enemeyRectrange))
             {
+
                 if(!isInvunarble)
                 {
                     lives--;
@@ -93,9 +95,6 @@ namespace PacMan
                     Debug.WriteLine("collide " + lives);
                 }
 
-
-
-                //lives--;
                 if (lives <= 0)
                 {
                     gameOver = true;
