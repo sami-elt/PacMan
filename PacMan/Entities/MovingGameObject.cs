@@ -37,7 +37,7 @@ namespace PacMan.Entities
         public MovingGameObject(Vector2 position, Texture2D texture, Tilemap tilemap) : base(texture, position)
         {
             this.tilemap = tilemap;
-            rec = new Rectangle((int)position.X, (int)position.Y, Tilemap.TileSize, Tilemap.TileSize);
+            rec = new Rectangle((int)position.X, (int)position.Y, Tilemap.TileSize / 2, Tilemap.TileSize / 2);
             direction = new Vector2(0, 0);
             speed = 200;
             moving = false;
