@@ -21,7 +21,7 @@ namespace PacMan
         private bool gameWon;
 
         private float timer = 0f;
-        private float invunarable = 3f;
+        private float invunarable = 2f;
         private bool isInvunarble = false;
 
         public bool GameOver { get { return gameOver; }}
