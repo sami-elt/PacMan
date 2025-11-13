@@ -46,8 +46,8 @@ namespace PacMan
 
             tilemap.CreateLevel(@"map.txt");
 
-            player = tilemap.Player;
-            enemy = tilemap.Enemy;
+            player = tilemap.player;
+            enemy = tilemap.enemy;
             gameManager = new GameManager(tilemap);
 
 
@@ -78,12 +78,21 @@ namespace PacMan
 
             spriteBatch.Begin();
 
-            tilemap.Draw(spriteBatch);
+            if(gameManager.GameWon || gameManager.GameOver)
+            {
 
-            player.Draw(spriteBatch);
-            enemy.Draw(spriteBatch);
+                gameManager.Draw(spriteBatch);
 
-            gameManager.Draw(spriteBatch);
+            } else
+            {
+                tilemap.Draw(spriteBatch);
+
+                player.Draw(spriteBatch);
+                enemy.Draw(spriteBatch);
+
+            }
+
+
 
             spriteBatch.End();
 

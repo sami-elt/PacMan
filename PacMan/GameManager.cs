@@ -39,8 +39,6 @@ namespace PacMan
         public void Update(GameTime gameTime)
         {
 
-
-
             if (isInvunarble)
             {
                 timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -58,17 +56,17 @@ namespace PacMan
 
         private void FoodCollision()
         {
-            Rectangle playerRectangle = tilemap.Player.Rec;
+            Rectangle playerRectangle = tilemap.player.Rec;
 
-            foreach(Food food in tilemap.Food)
+            foreach(Food food in tilemap.food)
             {
                 if (!food.IsEaten)
                 {
                     Rectangle foodRectangle = new Rectangle(
                         (int)food.Position.X,
                         (int)food.Position.Y,
-                        Tilemap.TileSize,
-                        Tilemap.TileSize
+                        Tilemap.TileSize / 2,
+                        Tilemap.TileSize / 2
                         );
 
                     if(playerRectangle.Intersects(foodRectangle))
@@ -81,8 +79,8 @@ namespace PacMan
 
         private void EnemyCollision()
         {
-            Rectangle playerRectangle = tilemap.Player.Rec;
-            Rectangle enemeyRectrange = tilemap.Enemy.Rec;
+            Rectangle playerRectangle = tilemap.player.Rec;
+            Rectangle enemeyRectrange = tilemap.enemy.Rec;
 
             if(playerRectangle.Intersects(enemeyRectrange))
             {
@@ -108,7 +106,7 @@ namespace PacMan
         {
             bool allFoodIsEaten = true;
 
-            foreach (Food food in tilemap.Food)
+            foreach (Food food in tilemap.food)
             {
                 if (!food.IsEaten)
                 {
@@ -137,7 +135,7 @@ namespace PacMan
 
             if (GameWon)
             {
-                string winningText = "YOU WIN";
+                string winningText = "YOU WIN!!!";
 
                 Vector2 textPosition = new Vector2(
                 GraphicsDeviceManager.DefaultBackBufferWidth / 2,

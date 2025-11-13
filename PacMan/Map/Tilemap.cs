@@ -16,26 +16,11 @@ namespace PacMan.Map
         private Tileset[,] tileArray;
         public static int TileSize { get; } = 50;
 
-        private Player player;
-        private Enemy enemy;
+        public Player player;
+        public Enemy enemy;
 
-        private List<Food> food = new List<Food>();
+        public List<Food> food = new List<Food>();
 
-        public List<Food> Food
-        {
-            get { return food; }
-        }
-
-
-        public Player Player
-        {
-            get { return player; }
-        }
-
-        public Enemy Enemy
-        {
-            get { return enemy; }
-        }
         public List<string> ReadFromFile(string fileName)
         {
             StreamReader sr = new StreamReader(fileName);
@@ -85,7 +70,7 @@ namespace PacMan.Map
                         enemy = new Enemy(new Vector2(j * TileSize, i * TileSize), TextureHandler.spritesheetTexture, this);
                     }
 
-                    if (level[i][j] == '-')
+                    if (level[i][j] == '-' || level[i][j] == 'e')
                     {
                         food.Add(new Food(new Vector2(j * TileSize, i * TileSize), TextureHandler.foodTexture));
                     }
